@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Ayang ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: Poppins, sans-serif;
+        background: #0f172a;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      .pink-love {
+        color: #ff69b4;
+        font-size: 40pt;
+      }
+      .bg {
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at 20% 30%, #ff4d8d 0%, transparent 30%), radial-gradient(circle at 80% 20%, #7c3aed 0%, transparent 35%), #0f172a;
+        z-index: -1;
+      }
+      .hero,
+      .section {
+        padding: 40px 20px;
+      }
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        max-width: 1000px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(20px);
+        border-radius: 30px;
+        padding: 30px;
+        text-align: center;
+      }
+      .photo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        margin: auto;
+        overflow: hidden;
+        border: 5px solid #ff7eb3;
+      }
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      h1 {
+        font-family: "Great Vibes", cursive;
+        font-size: clamp(3rem, 8vw, 5rem);
+      }
+      .subtitle {
+        margin-top: 15px;
+        line-height: 1.8;
+      }
+      .countdown {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-top: 30px;
+      }
+      .box {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 20px;
+        border-radius: 20px;
+      }
+      .box b {
+        font-size: 2rem;
+      }
+      .btn {
+        margin-top: 25px;
+        padding: 14px 30px;
+        border: none;
+        border-radius: 999px;
+        background: #ff4d8d;
+        color: white;
+        cursor: pointer;
+      }
+      .letter {
+        display: none;
+        text-align: left;
+        margin-top: 20px;
+        background: rgba(255, 255, 255, 0.06);
+        padding: 20px;
+        border-radius: 20px;
+      }
+      .section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2.2rem;
+      }
+      .timeline {
+        max-width: 900px;
+        margin: auto;
+      }
+      .item {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 20px;
+        border-radius: 20px;
+        margin-bottom: 15px;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+        max-width: 1200px;
+        margin: auto;
+      }
+      .gallery img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .reasons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        max-width: 1200px;
+        margin: auto;
+      }
+      .reason {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 20px;
+        border-radius: 20px;
+      }
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+      }
+      .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+      }
+      footer {
+        text-align: center;
+        padding: 40px;
+      }
+      @media (max-width: 480px) {
+        .card {
+          padding: 20px;
+        }
+        .photo {
+          width: 140px;
+          height: 140px;
+        }
+      }
+
+      /* ==========================
+   ANIMATIONS
+========================== */
+
+      @keyframes floatCard {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .card {
+        animation: floatCard 6s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0% {
+          transform: scale(1);
+        }
+        14% {
+          transform: scale(1.08);
+        }
+        28% {
+          transform: scale(1);
+        }
+        42% {
+          transform: scale(1.08);
+        }
+        70% {
+          transform: scale(1);
+        }
+      }
+
+      .photo {
+        animation: heartbeat 3s infinite;
+        box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+      }
+
+      .pink-love {
+        animation: heartbeat 1.5s infinite;
+      }
+
+      /* Tombol Glow */
+
+      .btn {
+        transition: 0.4s;
+        box-shadow: 0 0 20px rgba(255, 77, 141, 0.4);
+      }
+
+      .btn:hover {
+        transform: translateY(-5px);
+        box-shadow:
+          0 0 20px #ff4d8d,
+          0 0 40px #ff4d8d,
+          0 0 80px #ff4d8d;
+      }
+
+      /* Gallery */
+
+      .gallery img {
+        transition: 0.5s;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.08) rotate(1deg);
+      }
+
+      /* Timeline & Reason */
+
+      .item,
+      .reason {
+        transition: 0.4s;
+      }
+
+      .item:hover,
+      .reason:hover {
+        transform: translateY(-8px);
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      /* FLOATING HEARTS */
+
+      .hearts {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .heart {
+        position: absolute;
+        color: rgba(255, 105, 180, 0.8);
+        animation: rise linear forwards;
+      }
+
+      @keyframes rise {
+        from {
+          transform: translateY(100vh) scale(0.5);
+          opacity: 1;
+        }
+        to {
+          transform: translateY(-100px) scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      /* STARS */
+
+      .stars {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle 2s infinite alternate;
+      }
+
+      @keyframes twinkle {
+        from {
+          opacity: 0.2;
+        }
+        to {
+          opacity: 1;
+          transform: scale(1.8);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hearts"></div>
+    <div class="stars"></div>
+    <div class="bg"></div>
+
+    <section class="hero">
+      <div class="card">
+        <div class="photo"><img src="we_love.jpeg" alt="" /></div>
+        <h1>Selamat Ulang Tahun Ayang <i class="fa-solid fa-heart pink-love"></i></h1>
+        <p class="subtitle">Terima kasih sudah menjadi bagian terindah dalam hidupku.</p>
+
+        <div class="countdown">
+          <div class="box">
+            <b id="days">0</b>
+            <div>Hari</div>
+          </div>
+          <div class="box">
+            <b id="hours">0</b>
+            <div>Jam</div>
+          </div>
+          <div class="box">
+            <b id="minutes">0</b>
+            <div>Menit</div>
+          </div>
+          <div class="box">
+            <b id="seconds">0</b>
+            <div>Detik</div>
+          </div>
+        </div>
+
+        <button class="btn" onclick="openLetter()">Buka Surat Cinta</button>
+
+        <div class="letter" id="letter">
+          <div id="typing"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Perjalanan Kita <i class="fa-solid fa-heart pink-love" style="font-size: 25pt"></i></h2>
+      <div class="timeline">
+        <div class="item">
+          <b>22 Juli 2022</b>
+          <p>Hari dimana kisah kita dimulai.</p>
+        </div>
+        <div class="item">
+          <b>2023</b>
+          <p>Tahun penuh tawa dan cerita.</p>
+        </div>
+        <div class="item">
+          <b>2024</b>
+          <p>Belajar tumbuh bersama.</p>
+        </div>
+        <div class="item">
+          <b>2025</b>
+          <p>Mengejar mimpi bersama.</p>
+        </div>
+        <div class="item">
+          <b>2026</b>
+          <p>Ulang tahun Ayang yang ke-23 <i class="fa-solid fa-heart pink-love" style="font-size: 16pt"></i></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Alasan Aku Mencintaimu <i class="fa-solid fa-heart pink-love" style="font-size: 25pt"></i></h2>
+      <div class="reasons">
+        <div class="reason">Karena senyummu selalu membuat hariku lebih baik.</div>
+        <div class="reason">Karena kamu selalu hadir saat aku membutuhkan.</div>
+        <div class="reason">Karena bersamamu aku merasa pulang.</div>
+        <div class="reason">Karena kamu membuat hidup lebih berwarna.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Galeri Kenangan <i class="fa-solid fa-camera-retro"></i></h2>
+      <div class="gallery">
+        <img src="foto1.jpeg" onclick="showImg(this.src)" />
+        <img src="foto2.jpeg" onclick="showImg(this.src)" />
+        <img src="foto3.jpeg" onclick="showImg(this.src)" />
+        <img src="foto4.jpeg" onclick="showImg(this.src)" />
+        <img src="foto5.jpeg" onclick="showImg(this.src)" />
+      </div>
+    </section>
+
+    <div class="lightbox" id="lightbox" onclick="this.style.display = 'none'">
+      <img id="lightboxImg" />
+    </div>
+
+    <audio id="bgMusic" loop>
+      <source src="promise_you.mp3" type="audio/mpeg" />
+    </audio>
+
+    <footer>Made With Love For Ayang <i class="fa-solid fa-heart pink-love" style="font-size: 14pt"></i></footer>
+
+    <script>
+      function countdown() {
+        const target = new Date("June 17, 2026 00:00:00").getTime();
+        const now = new Date().getTime();
+        const d = target - now;
+        if (d < 0) return;
+        days.innerHTML = Math.floor(d / (1000 * 60 * 60 * 24));
+        hours.innerHTML = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        minutes.innerHTML = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+        seconds.innerHTML = Math.floor((d % (1000 * 60)) / 1000);
+      }
+      setInterval(countdown, 1000);
+      countdown();
+      const msg = `Selamat ulang tahun ke-23, Ayang.
+
+Di hari spesial ini, saya mau ngucapin terima kasih untuk semua hal yang udah ayang kasih selama ini. Terima kasih karena udah hadir dalam perjalanan hidup saya, nemenin di saat senang maupun saat keadaan enggak selalu berjalan sesuai harapan.
+
+Terima kasih buat kesabaran, perhatian, dukungan, dan semua usaha kecil yang mungkin sering tidak terlihat, tetapi sangat berarti bagi saya. Banyak hal yang menjadi lebih mudah dijalani karena ada ayang di samping saya.
+
+Saya berdoa semoga di usia yang baru ini ayang selalu diberikan kesehatan, kebahagiaan, ketenangan hati, serta kemudahan dalam setiap langkah yang ayang ambil. Semoga segala usaha dan kerja keras ayang bisa membuahkan hasil yang baik, dan semoga setiap doa yang ayang panjatkan perlahan nemuin jalannya buat menjadi kenyataan.
+
+Saya juga berharap ayang enggak terlalu keras sama diri sendiri. enggak apa-apa kok kalo terkadang ngerasa capek, bingung, atau belum mencapai semua yang mau. Hidup bukan perlombaan, dan setiap orang punya waktunya masing-masing. Yang terpenting adalah terus melangkah, sekecil apa pun langkah itu.
+
+Semoga tahun ini menjadi tahun yang lebih baik dari tahun-tahun sebelumnya, penuh dengan pengalaman baik, orang-orang baik, dan banyak alasan buat tersenyum. Semoga apa yang ngebuat ayang khawatir hari ini perlahan tergantikan dengan rasa tenang dan keyakinan bahwa semuanya bakal baik-baik aja pada waktunya.
+
+Saya enggak bisa ngejanjiin kalo semua hari bakal selalu mudah. Bakal ada hari yang melelahkan, ada rencana yang enggak berjalan sesuai harapan, dan ada masa-masa yang nguji kesabaran kita. Saya berharap, dalam setiap cerita yang akan datang, saya masih bisa menjadi seseorang yang nemenin ayang ngelewatin semuanya.
+
+Terima kasih karena udah bertahan sejauh ini. Terima kasih karena udah jadi pribadi yang kuat, baik, dan selalu berusaha memberikan yang terbaik buat orang-orang di sekitar ayang.
+
+Dan terima kasih karena udah jadi bagian yang sangat berarti dalam hidup saya.
+
+Selamat ulang tahun, Ayang.
+
+Semoga hari ini membawa banyak kebahagiaan, dan semoga tahun-tahun berikutnya membawa lebih banyak hal baik yang layak ayang dapatkan.
+
+Saya sayang Ayang, hari ini, besok, dan selamanya Love You Ayang.`;
+
+      function openLetter() {
+        const music = document.getElementById("bgMusic");
+        music.play();
+
+        const letter = document.getElementById("letter");
+        letter.style.display = "block";
+
+        // Scroll halus ke surat
+        setTimeout(() => {
+          letter.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 100);
+
+        let i = 0;
+        const t = document.getElementById("typing");
+        t.innerHTML = "";
+
+        let x = setInterval(() => {
+          t.innerHTML += msg.charAt(i);
+          i++;
+
+          if (i >= msg.length) {
+            clearInterval(x);
+          }
+        }, 200);
+      }
+
+      /* Floating Hearts */
+
+      setInterval(() => {
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = "❤";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        heart.style.animationDuration = Math.random() * 4 + 4 + "s";
+
+        document.querySelector(".hearts").appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 8000);
+      }, 300);
+
+      /* Stars */
+
+      for (let i = 0; i < 80; i++) {
+        const star = document.createElement("div");
+
+        star.className = "star";
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+        star.style.animationDelay = Math.random() * 3 + "s";
+
+        document.querySelector(".stars").appendChild(star);
+      }
+    </script>
+  </body>
+</html>
