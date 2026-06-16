@@ -78,14 +78,57 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 15px;
         margin-top: 30px;
+        width: 100%;
       }
+
       .box {
         background: rgba(255, 255, 255, 0.08);
-        padding: 20px;
+        padding: 20px 10px;
         border-radius: 20px;
+        text-align: center;
+        backdrop-filter: blur(10px);
       }
+
       .box b {
-        font-size: 2rem;
+        display: block;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 700;
+      }
+
+      .box div {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        margin-top: 5px;
+      }
+
+      /* Tablet */
+      @media (max-width: 768px) {
+        .countdown {
+          gap: 10px;
+        }
+
+        .box {
+          padding: 15px 8px;
+        }
+      }
+
+      /* HP */
+      @media (max-width: 480px) {
+        .countdown {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+
+        .box {
+          padding: 15px 10px;
+          border-radius: 15px;
+        }
+      }
+
+      /* HP sangat kecil */
+      @media (max-width: 320px) {
+        .countdown {
+          grid-template-columns: 1fr;
+        }
       }
       .btn {
         margin-top: 25px;
